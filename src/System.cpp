@@ -56,3 +56,7 @@ void SimulationSystem::runStep(double dt) {
         particles.push_back(p);
     }
 }
+
+size_t SimulationSystem::getParticleCount() const {
+    return particles.size();
+}
