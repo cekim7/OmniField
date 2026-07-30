@@ -4,6 +4,7 @@
 #include "Vector3.hpp"
 #include "Particle.hpp"
 #include <vector>
+#include <string>
 
 class MeshObject {
 public:
@@ -12,8 +13,9 @@ public:
     Vec3 velocity;
     double total_mass;
     double radius; // Simplified bounding volume for collision detection
+    std::string microstructure;
 
-    MeshObject(int id, Vec3 com, Vec3 vel, double mass, double radius);
+    MeshObject(int id, Vec3 com, Vec3 vel, double mass, double radius, std::string microstructure = "bulk");
 
     // Apply external force (Newtonian mechanics)
     void applyForce(const Vec3& force, double dt);

@@ -2,8 +2,8 @@
 #include <cmath>
 #include <cstdlib>
 
-MeshObject::MeshObject(int id, Vec3 com, Vec3 vel, double mass, double radius)
-    : id(id), center_of_mass(com), velocity(vel), total_mass(mass), radius(radius) {}
+MeshObject::MeshObject(int id, Vec3 com, Vec3 vel, double mass, double radius, std::string microstructure)
+    : id(id), center_of_mass(com), velocity(vel), total_mass(mass), radius(radius), microstructure(microstructure) {}
 
 void MeshObject::applyForce(const Vec3& force, double dt) {
     if (total_mass <= 0) return;
@@ -48,7 +48,7 @@ std::vector<Particle> MeshObject::resolveCollisionToParticles(const MeshObject& 
         // Inherit some velocity, scatter the rest
         Vec3 p_vel = velocity * 0.5 + Vec3(offset_x, offset_y, offset_z) * 10.0;
 
-        Particle p(particle_id_counter++, p_pos, p_vel, mass_per_particle, charge_per_particle);
+        Particle p(particle_id_counter++, p_pos, p_vel, mass_per_particle, charge_per_particle, 0.0, "mace r2scan");
         generated_particles.push_back(p);
     }
 
