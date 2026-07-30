@@ -23,6 +23,8 @@ public:
 
     // Main simulation loop step
     void runStep(double dt);
+
+    size_t getParticleCount() const;
 };
 
 #endif // SYSTEM_HPP
